@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Andrew Jaffe @ 60 — Conference Programme</title>
+  <style>
+    :root {
+      --bg: #f8f7f4;
+      --paper: #ffffff;
+      --ink: #1f2933;
+      --muted: #5b6770;
+      --rule: #d9dde3;
+      --accent: #1f4b6e;
+      --accent-soft: #edf3f8;
+      --event: #f5f1e8;
+      --shadow: rgba(31, 41, 51, 0.08);
+      --maxw: 980px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+
+    .page {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--paper), #f3f6fa);
+      border: 1px solid var(--rule);
+      border-radius: 18px;
+      padding: 32px 28px;
+      box-shadow: 0 8px 30px var(--shadow);
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .meta span {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 8px 12px;
+    }
+
+    .note {
+      margin-top: 18px;
+      padding: 12px 14px;
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 26px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--accent);
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.94rem;
+      transition: all 0.2s ease;
+    }
+
+    .nav a:hover {
+      background: var(--accent-soft);
+      border-color: #bfd0de;
+    }
+
+    .day {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 18px;
+      box-shadow: 0 8px 24px var(--shadow);
+      margin-bottom: 28px;
+      overflow: hidden;
+    }
+
+    .day-header {
+      padding: 20px 24px;
+      background: #fcfcfd;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .day-header h2 {
+      margin: 0;
+      font-size: 1.7rem;
+      color: var(--accent);
+    }
+
+    .day-body {
+      padding: 10px 24px 24px;
+    }
+
+    .session {
+      margin-top: 22px;
+    }
+
+    .session-title {
+      margin: 0 0 12px;
+      font-size: 1.12rem;
+      color: var(--ink);
+      font-style: italic;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 6px;
+    }
+
+    .talk,
+    .event {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid #eceff3;
+    }
+
+    .talk:last-child,
+    .event:last-child {
+      border-bottom: none;
+    }
+
+    .time {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 0.96rem;
+      padding-top: 2px;
+    }
+
+    .details h3 {
+      margin: 0 0 4px;
+      font-size: 1.08rem;
+      color: var(--ink);
+    }
+
+    .talk-title {
+      margin: 0 0 8px;
+      color: #243746;
+      font-style: italic;
+    }
+
+    .abstract {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.96rem;
+    }
+
+    .event {
+      background: var(--event);
+      border-radius: 12px;
+      padding: 14px 14px;
+      margin: 10px 0;
+      border: 1px solid #e8dfcf;
+    }
+
+    .event .details h3 {
+      margin-bottom: 2px;
+    }
+
+    .event .abstract {
+      color: #5f5a4f;
+    }
+
+    details.abstract-toggle {
+      margin-top: 8px;
+    }
+
+    details.abstract-toggle summary {
+      cursor: pointer;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--accent);
+      font-size: 0.94rem;
+      font-weight: 600;
+      list-style: none;
+      outline: none;
+      display: inline-block;
+    }
+
+    details.abstract-toggle summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.abstract-toggle summary::before {
+      content: "▸ ";
+    }
+
+    details.abstract-toggle[open] summary::before {
+      content: "▾ ";
+    }
+
+    details.abstract-toggle summary:hover {
+      text-decoration: underline;
+    }
+
+    .footer {
+      margin-top: 20px;
+      padding: 18px 4px 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .talk,
+      .event {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .time {
+        padding-top: 0;
+      }
+
+      .hero,
+      .day-header,
+      .day-body {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+      .page {
+        max-width: none;
+        padding: 0;
+      }
+      .hero,
+      .day {
+        box-shadow: none;
+      }
+      .nav {
+        display: none;
+      }
+      .day {
+        break-inside: avoid;
+        margin-bottom: 18px;
+      }
+      details.abstract-toggle > * {
+        display: block;
+      }
+      details.abstract-toggle summary {
+        font-weight: bold;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="hero">
+      <div class="eyebrow">Conference Programme</div>
+      <h1>The Random Universe</h1>
+      <div class="subtitle">
+        Celebrating Andrew Jaffe with talks across cosmology, statistics, topology, and related topics.
+      </div>
+      <div class="meta">
+        <span><strong>Venue:</strong> Blackett Lecture Theatre 2</span>
+        <span><strong>Dates:</strong> Monday 29 June – Thursday 2 July</span>
+      </div>
+
+    </header>
+
+    <nav class="nav" aria-label="Programme days">
+      <a href="#monday">Monday 29 June</a>
+      <a href="#tuesday">Tuesday 30 June</a>
+      <a href="#wednesday">Wednesday 1 July</a>
+      <a href="#thursday">Thursday 2 July</a>
+    </nav>
+
+    <section class="day" id="monday">
+      <div class="day-header">
+        <h2>Monday 29 June</h2>
+      </div>
+      <div class="day-body">
+
+        <div class="event">
+          <div class="time">14:00</div>
+          <div class="details">
+            <h3>Welcome</h3>
+            <p class="abstract">Opening remarks and introduction.</p>
+          </div>
+        </div>
+
+        <section class="session">
+          <h3 class="session-title">CMB 1</h3>
+
+          <article class="talk">
+            <div class="time">14:10</div>
+            <div class="details">
+              <h3>François Bouchet</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">14:35</div>
+            <div class="details">
+              <h3>Jo Dunkley</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">15:00</div>
+            <div class="details">
+              <h3>Nick Gnedin</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">15:25</div>
+            <div class="details">
+              <h3>Dmitri Novikov</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+        </section>
+
+        <div class="event">
+          <div class="time">15:50</div>
+          <div class="details">
+            <h3>Coffee</h3>
+            <p class="abstract">Refreshment break.</p>
+          </div>
+        </div>
+
+        <section class="session">
+          <h3 class="session-title">Statistics 1</h3>
+
+          <article class="talk">
+            <div class="time">16:20</div>
+            <div class="details">
+              <h3>Andrew Gelman</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">16:45</div>
+            <div class="details">
+              <h3>Elena Sellentin</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">17:10</div>
+            <div class="details">
+              <h3>Albert Stebbins</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+        </section>
+
+        <div class="event">
+          <div class="time">18:00</div>
+          <div class="details">
+            <h3>Welcome Reception</h3>
+            <p class="abstract">Evening reception for attendees.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="day" id="tuesday">
+      <div class="day-header">
+        <h2>Tuesday 30 June</h2>
+      </div>
+      <div class="day-body">
+
+        <section class="session">
+          <h3 class="session-title">Cosmology 1</h3>
+
+          <article class="talk">
+            <div class="time">09:00</div>
+            <div class="details">
+              <h3>Andrew Liddle</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">09:25</div>
+            <div class="details">
+              <h3>Marc Kamionkowski</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">09:50</div>
+            <div class="details">
+              <h3>Joe Silk</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">10:15</div>
+            <div class="details">
+              <h3>Jim Fry</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+        </section>
+
+        <div class="event">
+          <div class="time">10:40</div>
+          <div class="details">
+            <h3>Coffee</h3>
+            <p class="abstract">Refreshment break.</p>
+          </div>
+        </div>
+
+        <section class="session">
+          <h3 class="session-title">CMB 2</h3>
+
+          <article class="talk">
+            <div class="time">11:10</div>
+            <div class="details">
+              <h3>Arthur Kosowsky</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">11:35</div>
+            <div class="details">
+              <h3>Xing Li</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">12:00</div>
+            <div class="details">
+              <h3>Tarun Souradeep</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+        </section>
+
+        <div class="event">
+          <div class="time">12:25</div>
+          <div class="details">
+            <h3>Lunch</h3>
+            <p class="abstract">Lunch break.</p>
+          </div>
+        </div>
+
+        <section class="session">
+          <h3 class="session-title">An exciting array of topics</h3>
+
+          <article class="talk">
+            <div class="time">13:50</div>
+            <div class="details">
+              <h3>Raul Jimenez</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">14:15</div>
+            <div class="details">
+              <h3>Paul Nandra</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">14:40</div>
+            <div class="details">
+              <h3>Rüdiger Schack</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+        </section>
+
+        <div class="event">
+          <div class="time">15:05</div>
+          <div class="details">
+            <h3>Coffee</h3>
+            <p class="abstract">Refreshment break.</p>
+          </div>
+        </div>
+
+        <div class="event">
+          <div class="time">15:30</div>
+          <div class="details">
+            <h3>Panel Discussion: AI and Inference</h3>
+            <details class="abstract-toggle">
+              <summary>Show discussion summary</summary>
+              <p class="abstract">Discussion summary:</p>
+            </details>
+          </div>
+        </div>
+
+        <div class="event">
+          <div class="time">19:00</div>
+          <div class="details">
+            <h3>Boat Trip on the Thames from Richmond</h3>
+            <p class="abstract">Evening social event.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="day" id="wednesday">
+      <div class="day-header">
+        <h2>Wednesday 1 July</h2>
+      </div>
+      <div class="day-body">
+
+        <section class="session">
+          <h3 class="session-title">Statistics 2</h3>
+
+          <article class="talk">
+            <div class="time">09:00</div>
+            <div class="details">
+              <h3>Marina Cortes</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">09:25</div>
+            <div class="details">
+              <h3>Mike Hobson</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">09:50</div>
+            <div class="details">
+              <h3>David Hogg</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">10:15</div>
+            <div class="details">
+              <h3>Arthur Loureiro</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+        </section>
+
+        <div class="event">
+          <div class="time">10:40</div>
+          <div class="details">
+            <h3>Coffee</h3>
+            <p class="abstract">Refreshment break.</p>
+          </div>
+        </div>
+
+        <section class="session">
+          <h3 class="session-title">Dark Energy</h3>
+
+          <article class="talk">
+            <div class="time">11:10</div>
+            <div class="details">
+              <h3>George Efstathiou</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">11:35</div>
+            <div class="details">
+              <h3>Josh Frieman</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">12:00</div>
+            <div class="details">
+              <h3>Masashi Hazumi</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">12:25</div>
+            <div class="details">
+              <h3>Lam Hui</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+        </section>
+
+        <div class="event">
+          <div class="time">12:50</div>
+          <div class="details">
+            <h3>Lunch</h3>
+            <p class="abstract">Lunch break.</p>
+          </div>
+        </div>
+
+        <section class="session">
+          <h3 class="session-title">Cosmology 2</h3>
+
+          <article class="talk">
+            <div class="time">14:10</div>
+            <div class="details">
+              <h3>Ofer Lahav</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">14:35</div>
+            <div class="details">
+              <h3>Dmitri Pogosyan</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">15:00</div>
+            <div class="details">
+              <h3>Joe Zuntz</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">15:25</div>
+            <div class="details">
+              <h3>Selim Hotinli</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+        </section>
+
+        <div class="event">
+          <div class="time">15:50</div>
+          <div class="details">
+            <h3>Coffee</h3>
+            <p class="abstract">Refreshment break.</p>
+          </div>
+        </div>
+
+        <div class="event">
+          <div class="time">16:20</div>
+          <div class="details">
+            <h3>Panel Discussion: The future of cosmology</h3>
+            <details class="abstract-toggle">
+              <summary>Show discussion summary</summary>
+              <p class="abstract">Discussion summary:</p>
+            </details>
+          </div>
+        </div>
+
+        <div class="event">
+          <div class="time">19:00</div>
+          <div class="details">
+            <h3>Conference Dinner</h3>
+            <p class="abstract">Conference dinner for attendees.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="day" id="thursday">
+      <div class="day-header">
+        <h2>Thursday 2 July</h2>
+      </div>
+      <div class="day-body">
+
+        <section class="session">
+          <h3 class="session-title">Topology</h3>
+
+          <article class="talk">
+            <div class="time">09:00</div>
+            <div class="details">
+              <h3>Yashar Akrami</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">09:25</div>
+            <div class="details">
+              <h3>Craig Copi</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">09:50</div>
+            <div class="details">
+              <h3>Linn Htat Lu</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">10:15</div>
+            <div class="details">
+              <h3>Glenn Starkman</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+        </section>
+
+        <div class="event">
+          <div class="time">10:40</div>
+          <div class="details">
+            <h3>Coffee</h3>
+            <p class="abstract">Refreshment break.</p>
+          </div>
+        </div>
+
+        <section class="session">
+          <h3 class="session-title">Another exciting array</h3>
+
+          <article class="talk">
+            <div class="time">11:10</div>
+            <div class="details">
+              <h3>Florent Leclercq</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">11:35</div>
+            <div class="details">
+              <h3>Chiara Mingarelli</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">12:00</div>
+            <div class="details">
+              <h3>Ben Wandelt</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk">
+            <div class="time">12:25</div>
+            <div class="details">
+              <h3>Licia Verde</h3>
+              <p class="talk-title">Title:</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+        </section>
+
+        <div class="event">
+          <div class="time">12:50</div>
+          <div class="details">
+            <h3>Finish and thanks</h3>
+            <p class="abstract">Closing remarks.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="footer">
+      Programme page for <strong>Andrew Jaffe @ 60</strong> · Venue: <strong>Blackett Lecture Theatre 2</strong>
+    </footer>
+
+  </div>
+</body>
+</html>
