@@ -1051,7 +1051,7 @@ I’ll also talk about life as one of Andrew’s early PhD students back in the 
     // Add a "[slides]" link next to any speaker's name if a filename
     // has been given in the data-slides attribute of their <article class="talk">.
     // PDFs are expected in a "talks/" folder alongside this file.
-    document.querySelectorAll('.talk[data-slides]').forEach(function (talk) {
+    document.querySelectorAll('.talk[data-slides], .event[data-slides]').forEach(function (talk) {
       const filename = talk.getAttribute('data-slides').trim();
       if (!filename) return; // nothing supplied yet - show nothing
 
