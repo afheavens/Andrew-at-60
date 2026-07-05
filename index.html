@@ -1047,26 +1047,46 @@ I’ll also talk about life as one of Andrew’s early PhD students back in the 
 
   </div>
 
-  <script>
+    <script>
     // Add a "[slides]" link next to any speaker's name if a filename
     // has been given in the data-slides attribute of their <article class="talk">.
     // PDFs are expected in a "talks/" folder alongside this file.
     document.querySelectorAll('.talk[data-slides], .event[data-slides]').forEach(function (talk) {
-      const filename = talk.getAttribute('data-slides').trim();
-      if (!filename) return; // nothing supplied yet - show nothing
+      const raw = talk.getAttribute('data-slides').trim();
+      if (!raw) return; // nothing supplied yet - show nothing
+
+      // Supports multiple files, comma-separated, e.g.:
+      //   data-slides="smith.pdf"
+      //   data-slides="smith.pdf, smith_appendix.pdf"
+      // Optionally give each a custom label with "Label:filename.pdf":
+      //   data-slides="Slides:talk.pdf, Code:demo.pdf"
+      const files = raw.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+      if (files.length === 0) return;
 
       const heading = talk.querySelector('.details h3');
       if (!heading) return;
 
-      const link = document.createElement('a');
-      link.href = 'talks/' + filename;
-      link.className = 'slides-link';
-      link.textContent = '[slides]';
-      link.target = '_blank';
-      link.rel = 'noopener';
+      files.forEach(function (entry, i) {
+        let label, filename;
+        if (entry.includes(':')) {
+          const parts = entry.split(':');
+          label = parts[0].trim();
+          filename = parts.slice(1).join(':').trim();
+        } else {
+          filename = entry;
+          label = files.length > 1 ? 'slides ' + (i + 1) : 'slides';
+        }
 
-      heading.appendChild(document.createTextNode(' '));
-      heading.appendChild(link);
+        const link = document.createElement('a');
+        link.href = 'talks/' + filename;
+        link.className = 'slides-link';
+        link.textContent = '[' + label + ']';
+        link.target = '_blank';
+        link.rel = 'noopener';
+
+        heading.appendChild(document.createTextNode(' '));
+        heading.appendChild(link);
+      });
     });
   </script>
 </body>
