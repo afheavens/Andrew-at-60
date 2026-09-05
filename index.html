@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A Random Universe — Conference Programme</title>
+  <style>
+    :root {
+      --bg: #f8f7f4;
+      --paper: #ffffff;
+      --ink: #1f2933;
+      --muted: #5b6770;
+      --rule: #d9dde3;
+      --accent: #1f4b6e;
+      --accent-soft: #edf3f8;
+      --event: #f5f1e8;
+      --shadow: rgba(31, 41, 51, 0.08);
+      --maxw: 980px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+
+    .page {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--paper), #f3f6fa);
+      border: 1px solid var(--rule);
+      border-radius: 18px;
+      padding: 32px 28px;
+      box-shadow: 0 8px 30px var(--shadow);
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 14px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .meta span {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 8px 12px;
+    }
+
+    .note {
+      margin-top: 18px;
+      padding: 12px 14px;
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 26px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--accent);
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.94rem;
+      transition: all 0.2s ease;
+    }
+
+    .nav a:hover {
+      background: var(--accent-soft);
+      border-color: #bfd0de;
+    }
+
+    .day {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 18px;
+      box-shadow: 0 8px 24px var(--shadow);
+      margin-bottom: 28px;
+      overflow: hidden;
+    }
+
+    .day-header {
+      padding: 20px 24px;
+      background: #fcfcfd;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .day-header h2 {
+      margin: 0;
+      font-size: 1.7rem;
+      color: var(--accent);
+    }
+
+    .day-body {
+      padding: 10px 24px 24px;
+    }
+
+    .session {
+      margin-top: 22px;
+    }
+
+    .session-title {
+      margin: 0 0 4px;
+      font-size: 1.12rem;
+      color: var(--ink);
+      font-style: italic;
+      padding-bottom: 0;
+    }
+
+    .session-chair {
+      margin: 0 0 12px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.92rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 6px;
+    }
+
+    .session-chair .placeholder {
+      color: #b3522a;
+      font-style: italic;
+    }
+
+    .talk,
+    .event {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid #eceff3;
+    }
+
+    .talk:last-child,
+    .event:last-child {
+      border-bottom: none;
+    }
+
+    .time {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 0.96rem;
+      padding-top: 2px;
+    }
+
+    .details h3 {
+      margin: 0 0 4px;
+      font-size: 1.08rem;
+      color: var(--ink);
+    }
+
+    .talk-title {
+      margin: 0 0 8px;
+      color: #243746;
+      font-style: italic;
+    }
+
+    .abstract {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.96rem;
+    }
+
+    .event {
+      background: var(--event);
+      border-radius: 12px;
+      padding: 14px 14px;
+      margin: 10px 0;
+      border: 1px solid #e8dfcf;
+    }
+
+    .event .details h3 {
+      margin-bottom: 2px;
+    }
+
+    .event .abstract {
+      color: #5f5a4f;
+    }
+
+    details.abstract-toggle {
+      margin-top: 8px;
+    }
+
+    details.abstract-toggle summary {
+      cursor: pointer;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--accent);
+      font-size: 0.94rem;
+      font-weight: 600;
+      list-style: none;
+      outline: none;
+      display: inline-block;
+    }
+
+    details.abstract-toggle summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.abstract-toggle summary::before {
+      content: "▸ ";
+    }
+
+    details.abstract-toggle[open] summary::before {
+      content: "▾ ";
+    }
+
+    details.abstract-toggle summary:hover {
+      text-decoration: underline;
+    }
+
+    .slides-link {
+      margin-left: 8px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      background: var(--accent-soft);
+      border: 1px solid #bfd0de;
+      border-radius: 999px;
+      padding: 2px 10px;
+      white-space: nowrap;
+    }
+
+    .slides-link:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .footer {
+      margin-top: 20px;
+      padding: 18px 4px 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      .talk,
+      .event {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
+
+      .time {
+        padding-top: 0;
+      }
+
+      .hero,
+      .day-header,
+      .day-body {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+      .page {
+        max-width: none;
+        padding: 0;
+      }
+      .hero,
+      .day {
+        box-shadow: none;
+      }
+      .nav {
+        display: none;
+      }
+      .day {
+        break-inside: avoid;
+        margin-bottom: 18px;
+      }
+      details.abstract-toggle > * {
+        display: block;
+      }
+      details.abstract-toggle summary {
+        font-weight: bold;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="hero">
+      <div class="eyebrow">Conference Programme</div>
+      <h1>The Random Universe</h1>
+      <div class="subtitle">
+        Celebrating Andrew Jaffe with talks across cosmology, statistics, topology, and related topics.
+      </div>
+      <div class="meta">
+        <span><strong>Venue:</strong> Blackett Lecture Theatre 2</span>
+        <span><strong>Dates:</strong> Monday 29 June – Thursday 2 July</span>
+      </div>
+
+    </header>
+
+    <nav class="nav" aria-label="Programme days">
+      <a href="#monday">Monday 29 June</a>
+      <a href="#tuesday">Tuesday 30 June</a>
+      <a href="#wednesday">Wednesday 1 July</a>
+      <a href="#thursday">Thursday 2 July</a>
+      <a href="photos.html">Photos</a>
+    </nav>
+
+    <section class="day" id="monday">
+      <div class="day-header">
+        <h2>Monday 29 June</h2>
+      </div>
+      <div class="day-body">
+
+        <div class="event">
+          <div class="time">14:00</div>
+          <div class="details">
+            <h3>Welcome</h3>
+            <p class="abstract">Opening remarks and welcome from Claudia de Rham (Head of Universe).</p>
+          </div>
+        </div>
+
+        <section class="session">
+          <h3 class="session-title">CMB 1</h3>
+          <p class="session-chair">Chair: Anthony Challinor</span></p>
+
+          <article class="talk" data-slides="">
+            <div class="time">14:10</div>
+            <div class="details">
+              <h3>François Bouchet</h3>
+              <p class="talk-title">Title: Thirty Years of Decrypting the Random Universe — and Great Expectations Ahead</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: Three decades after COBE's first maps of the cosmic microwave background's anisotropies marked the start of the WMAP and Planck adventure, the CMB remains our sharpest probe of the early Universe. So many of you in this room — Andrew, Tarun, Ben, George, and others I won't have space to name — were yourselves architects of Planck's success, so it seems fitting to use that legacy as scaffolding for an overview of where the field stands today. I will review what this random sky has revealed — from the legacy of COBE, WMAP and Planck, to the latest combined constraints from Planck, ACT and SPT, the search for primordial gravitational waves with BICEP/Keck and the South Pole Observatory, and a look ahead to LiteBIRD's reformation and FOSSIL — touching on ACT only through its role in these joint constraints, and leaving its more specific results, and the Simons Observatory, to Jo's far more focused and cogent account.</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">14:35</div>
+            <div class="details">
+              <h3>Jo Dunkley</h3>
+              <p class="talk-title">Title: The CMB from the Atacama</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: I will talk about recent and ongoing measurements of the cosmic microwave background from the Atacama Desert. I will show the high resolution view that the Atacama Cosmology Telescope has given us, review what it has told us about the current model for the universe, and how the observations have progressed since Andrew’s early balloon-based results. I will then talk about observations now underway with the new Simons Observatory, a project with major UK involvement. With its smaller telescopes we are seeking a signal imprinted by gravitational waves generated in the early universe. Its largest telescope is measuring the finer scales of the CMB with increased sensitivity, probing the early universe as well as revealing the later-formed cosmic web of gas and dark matter. </p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">15:00</div>
+            <div class="details">
+              <h3>Nick Gnedin</h3>
+              <p class="talk-title">Title: CMB Optical Depth Fluctuations As the Fourth CMB Observable</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: The three primary CMB observables: temperature fluctuations T
+and polarization fluctuations E and B (and their cross-correlations) are
+powerful probes of cosmology and reionization physics. There is a fourth
+observable, though: the fluctuations in the optical depth. While
+somewhat futuristic, it may offer additional constraints on reionization
+and cosmology. Using the most advanced numerical simulations of cosmic
+reionization to date, I explore its potential reach as a novel probe of
+early structure formation.</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">15:25</div>
+            <div class="details">
+              <h3>Dmitry Novikov</h3>
+              <p class="talk-title">Title: Strong non-Gaussianity of Planck polarization data and an 
+alternative way to measure the CMB anisotropy and polarization 
+at low multipoles</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:I present a Gaussianity test for Planck polarization data by
+analyzing the statistics of singular (unpolarized) points in the 
+polarization field and show clear evidence of non-Gaussianity in both 
+E and B modes at almost all angular scales. We created publicly 
+available software that can perform such a test on any 
+polarization map in HEALPix format with full or incomplete sky 
+coverage. I also propose an alternative way to measure the CMB 
+anisotropy and polarization at low multipoles l=1,2,3 using the 
+anisotropic SZ effect.</p>
+              </details>
+            </div>
+          </article>
+        </section>
+
+        <div class="event">
+          <div class="time">15:50</div>
+          <div class="details">
+            <h3>Coffee break</h3>
+          </div>
+        </div>
+
+        <section class="session">
+          <h3 class="session-title">Random 1  (Zoom)</h3>
+          <p class="session-chair">Chair: Daniel Mortlock</span></p>
+
+          <article class="talk" data-slides="">
+            <div class="time">16:20</div>
+            <div class="details">
+              <h3>Andrew Gelman</h3>
+              <p class="talk-title">Title: The Anthropic Principle in Statistics and Science</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:The anthropic principle in physics states that our existence implies certain constraints on the natural conditions under which we evolved.  In statistics, a corresponding anthropic principle can be used to infer properties of the models we should fit to data.  For example, experiments are typically aimed to have a precision sufficient to estimate effects of interest but without overkill; it is rare to have an estimate that is 10 standard errors from zero,  We demonstrate through several examples in social and medical sciences how the anthropic principle, combined with Bayesian inference, can be used to improve statistical practice.</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">16:45</div>
+            <div class="details">
+              <h3>Chiara Mingarelli</h3>
+              <p class="talk-title">Title: Andrew and the Nanohertz Gravitational Wave Background</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: Andrew wrote one of the first papers predicting the amplitude of the low-frequency gravitational wave background in 2003.  From galaxy merger rates, black hole masses tied to their host galaxies, and the dynamics that bring a binary to the gravitational-wave regime, Jaffe and Backer 2003 predicted the nanohertz background from supermassive black hole binaries. They also worked out its statistics, finding that a few nearby massive binaries dominate the variance and skew the signal away from Gaussian. Pulsar timing arrays now have evidence for a background consistent with his prediction, and this paper has formed the foundation of many models that followed his pioneering contribution to the field. </p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">17:10-17:35</div>
+            <div class="details">
+              <h3>Albert Stebbins</h3>
+              <p class="talk-title">Title: The Quiet Universe - or - Why the Universe Hasn't Collapsed, Yet</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: Non-linear dynamics of cosmological inhomogeneities allow tiny fluctuations on small scales to generate white noise inhomogeneities on much larger scales which, in standard cosmology, will dominate on the largest scales. Observational limits on such a white noise component place severe limits on even tiny small scale fluctuations at early times. In other words the early universe must have been very quiet.
+</p>
+              </details>
+            </div>
+          </article>
+        </section>
+
+        <div class="event">
+          <div class="time">18:00</div>
+          <div class="details">
+            <h3>Welcome Reception</h3>
+            <p class="abstract">Evening reception with finger food.  Blackett Level 8 common room and roof.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="day" id="tuesday">
+      <div class="day-header">
+        <h2>Tuesday 30 June</h2>
+      </div>
+      <div class="day-body">
+
+        <section class="session">
+          <h3 class="session-title">Cosmology 1</h3>
+          <p class="session-chair">Chair: Carlo Baccigalupi</span></p>
+
+        <article class="talk" data-slides="">
+            <div class="time">09:00</div>
+            <div class="details">
+              <h3>Konrad Kuijken</h3>
+              <p class="talk-title">Title: Euclid: preparing for Data Release 1</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: I will describe the route to Euclid's first data release, emphasising some of the hurdles (expected and unexpected) encountered along the way.</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">09:25</div>
+            <div class="details">
+              <h3>Marc Kamionkowski</h3>
+              <p class="talk-title">Title: Pulsar timing arrays and the nano-Hertz gravitational-wave background</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: In 2002, Andrew wrote a now-classic paper that connected black-hole demographics to pulsar timing arrays and in so doing articulated clearly the science case for PTA searches for gravitational waves.  I will review this work briefly and then discuss more recent work, initiated by a 2018 paper with Andrew, on a harmonic approach to thinking about PTA observables.
+</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">09:50</div>
+            <div class="details">
+              <h3>Joe Silk</h3>
+              <p class="talk-title">Title: The ultimate solution for cosmology: sending Andrew to the Moon</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">10:15</div>
+            <div class="details">
+              <h3>Jim Fry</h3>
+              <p class="talk-title">Title: A random walk through the galaxies with digressions through Chicago and Paris
+</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: Retracing a path of encounters with Andrew and a few highlights
+of perturbative and non perturbative galaxy clustering.
+</p>
+              </details>
+            </div>
+          </article>
+        </section>
+
+        <div class="event">
+          <div class="time">10:40</div>
+          <div class="details">
+            <h3>Coffee break</h3>
+          </div>
+        </div>
+
+        <section class="session">
+          <h3 class="session-title">CMB 2</h3>
+          <p class="session-chair">Chair: Eleni Tsaprazi</span></p>
+
+          <article class="talk" data-slides="">
+            <div class="time">11:10</div>
+            <div class="details">
+              <h3>Arthur Kosowsky</h3>
+              <p class="talk-title">Title: Progress in Peculiar Velocities with the Microwave Background</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: Peculiar velocities have long been recognized as a powerful source of information about
+the growth of structure in the universe. Andrew’s early work with Pedro Ferreira, Roman Juskiewicz,
+Marc Davis, and Hume Feldman originally got me interested in mean pairwise velocities.
+But the limitations of galaxy distance estimates long
+precluded velocities from being a reliable and competitive cosmological probe. This
+began to change with ACT’s first detection of the kinematic Sunyaev-Zeldovich effect in 2012.
+The coming years hold the prospect of mapping the three-dimensional velocity
+field using the kSZ and transverse lensing effects by cross-correlations of large galaxy
+surveys like LSST and high-resolution microwave background maps from ACT and Simons Observatory. </p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">11:35</div>
+            <div class="details">
+              <h3>Tarun Souradeep</h3>
+              <p class="talk-title">Title: Discerning patterns in a random universe</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: The remarkable success of recent cosmology in pinpointing a concordance phenomenological model from the observations of the perturbed universe relies  on several foundational assumptions —  homogeneity, isotropy of the universe,  and nearly scale-invariant, nearly Gaussian, tiny, seed primordial fluctuations in the cosmic spacetime fabric that are expected to inherit its basic symmetries. Increasingly precise cosmological observations, such as the exquisite measurements of the CMB sky from the ESA Planck space mission, have opened up the possibility of robust,  independent tests of these assumptions.  I will present the results of my research program, which focuses on searching for subtle patterns that could expose richness beyond the rather simplistic cosmological model and early universe paradigm.</p>
+              </details>
+            </div>
+          </article>
+        </section>
+        
+          <article class="talk" data-slides="">
+            <div class="time">12:00</div>
+            <div class="details">
+              <h3>Glenn Starkman</h3>
+              <p class="talk-title">Title: Frequentist concerns in the land of the Bayesians -- evidence for statistical anisotropy</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: Our standard model of cosmology -- LCDM -- assumes and predicts the statistical isotropy and homogeneity of the Universe. Inflation gives us a framework within which that statistical isotropy may be expected.  But consistently at least since WMAP, and arguably COBE, the inferred CMB temperature maps has failed a series of simple statistical tests of some combination of Gaussianity, isotropy, and homogeneity. I will convince everyone that these tests collectively amount to strong evidence against this fundamental combination of assumptions/predictions in a way that is impossible to explain as non-Gaussianity, and that is unreasonable to blame on look elsewhere effects. As for many discoveries of new physics, this evidence stands against vanilla LCDM even in the absence of a model to explain it.</p>
+              </details>
+            </div>
+          </article>
+
+        <div class="event">
+          <div class="time">12:25</div>
+          <div class="details">
+            <h3>Lunch</h3>
+          </div>
+        </div>
+
+        <section class="session">
+          <h3 class="session-title">Random 2</h3>
+          <p class="session-chair">Chair: Jason McEwen</span></p>
+
+          <article class="talk" data-slides="">
+            <div class="time">13:50</div>
+            <div class="details">
+              <h3>Martin Kunz</h3>
+              <p class="talk-title">Title: Of Rock Rabbits and Elon Musk</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: A mildly contrived tale of leaving Andrew at the CMB, wrestling with noisy satellites at low redshift, and meeting him again thanks to Reverend Bayes</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">14:15</div>
+            <div class="details">
+              <h3>Paul Nandra</h3>
+              <p class="talk-title">Title: The eROSITA All-Sky Survey and its Cosmological Implications</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: Until the suspension of scientific operations in Feb 2022, the eROSITA instrument aboard the Spektr-RG satellite performed approximately 4.5 all-sky surveys reaching unprecedented depths in the soft X-ray band. The resulting dataset has impacted broadly on numerous areas of astrophysics. The design-driving science behind eROSITA is the assembly of large samples of X-ray selected clusters of galaxies across a wide redshift range, and their use as cosmological probes, primarily via the evolution of the mass function. In this talk a short overview of the eROSITA survey and its scientific impact will be provided, with a particular focus on the implications for cosmology provided by the first eROSITA all sky survey (eRASS:1) and the potential for the deeper data set (eRASS:5) that has now been accumulated. </p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">14:40</div>
+            <div class="details">
+              <h3>Rüdiger Schack</h3>
+              <p class="talk-title">Title: QBism: Personalist Bayesian probability in quantum mechanics (Zoom)</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: This talk is an introduction to QBism, a radical interpretation of quantum mechanics that takes all probabilities to be personalist degrees of belief. </p>
+              </details>
+            </div>
+          </article>
+        </section>
+
+        <div class="event">
+          <div class="time">15:05</div>
+          <div class="details">
+            <h3>Coffee break</h3>
+          </div>
+        </div>
+
+        <div class="event" data-slides="">
+          <div class="time">15:30-16:30</div>
+          <div class="details">
+            <h3>Panel Discussion: AI and Inference</h3>
+            <details class="abstract-toggle">
+              <summary>Show discussion summary</summary>
+              <p class="abstract">Discussion summary: Panel - Raul Jimenez (chair), Arthur Kosowsky, Ofer Lahav, Jason McEwen</p>
+            </details>
+          </div>
+        </div>
+
+        <div class="event">
+          <div class="time">19:00</div>
+          <div class="details">
+            <h3>Boat Trip on the Thames from Richmond</h3>
+            <p class="abstract">St Helena Pier, Richmond. Embarkation from 18:45.  Return c. 21:15.  Eat something beforehand.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="day" id="wednesday">
+      <div class="day-header">
+        <h2>Wednesday 1 July</h2>
+      </div>
+      <div class="day-body">
+
+        <section class="session">
+          <h3 class="session-title">Statistics</h3>
+          <p class="session-chair">Chair: David Alonso</span></p>
+
+          <article class="talk" data-slides="">
+            <div class="time">09:25</div>
+            <div class="details">
+              <h3>Carlo Contaldi</h3>
+              <p class="talk-title">Title: Cosmic Shimmering</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: Astrometry, the precise tracking of the positions of celestial objects, is increasingly relevant to gravitational-wave detection at nanohertz frequencies. Recent GAIA data on the proper motions of galactic and extragalactic objects demonstrate the potential of this approach. In this presentation, I will illustrate how astrometric data can be used to extract key vector and tensorial variables, known as cosmic shimmering, and how these variables can be used to detect gravitational waves. Additionally, I will discuss how this method complements existing Pulsar Timing Array observations.</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">09:50</div>
+            <div class="details">
+              <h3>Arthur Loureiro</h3>
+              <p class="talk-title">Title: Extracting Signal from a Random Universe: Bayesian Hierarchical Models for Next-Generation Surveys</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: Field-level inference — the direct statistical reconstruction of cosmological fields from observational data — is emerging as a transformative paradigm for next-generation galaxy surveys like Euclid, LSST, and DESI. Unlike traditional summary statistics, this approach infers latent fields (e.g. matter density, weak-lensing convergence) and their uncertainties directly, leveraging the full information content of the data to break degeneracies in cosmological parameters. In this talk, we present Almanac, a hierarchical Bayesian method for joint reconstruction of full-sky fields and their power spectra from masked, noisy data — a project that, without Andrew, would still be burning in. Building on Almanac, we introduced Flinch, an extension that propagates field-level inference to cosmological parameter space. By enabling differentiable end-to-end inference, Flinch improves cosmological constraints by up to 40% compared to conventional summary-statistic analyses. Together, these advances demonstrate how scalable Bayesian frameworks can unify data and theory, maximising the scientific return of the upcoming New Era of cosmic surveys, which we expect to conclude before Andrew's 70th birthday conference (if the chains converge).</p>
+              </details>
+            </div>
+          </article>
+        </section>
+
+          <article class="talk" data-slides="">
+            <div class="time">10:15</div>
+            <div class="details">
+              <h3>Mike Hobson</h3>
+              <p class="talk-title">Title: Evidence in cosmology: then and now</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: Bayesian model selection has become a cornerstone of modern cosmological inference. After briefly reviewing the underlying ideas, I will trace the method's journey through cosmology over the past three decades. I begin with its first application to the field in Andrew Jaffe's 1996 study of the Hubble constant and the odds on rival cosmological models, in which the evidence for a handful of low-dimensional models was obtained essentially by hand, using analytic approximations and direct numerical integration. I then contrast this with a recent analysis of the dark energy equation of state, in which the evidence plays a central role in obtaining a free-form "flexknot" reconstruction of w(z), computed with GPU-accelerated nested sampling over a variable-dimension parameter space, and is further used to ask whether the data favour dynamical dark energy or whether the apparent signal is instead an observational systematic. Throughout, the same evidence and its automatic Occam's razor remain the guiding principle.</p>
+              </details>
+            </div>
+          </article>
+        
+        <div class="event">
+          <div class="time">10:40</div>
+          <div class="details">
+            <h3>Coffee break</h3>
+          </div>
+        </div>
+
+        <section class="session">
+          <h3 class="session-title">Dark Universe</h3>
+          <p class="session-chair">Chair: Michael Rowan-Robinson</span></p>
+
+          <article class="talk" data-slides="">
+            <div class="time">11:10</div>
+            <div class="details">
+              <h3>George Efstathiou</h3>
+              <p class="talk-title">Title: The Psychology of Research post 60</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">11:35</div>
+            <div class="details">
+              <h3>Josh Frieman</h3>
+              <p class="talk-title">Title: Is Dark Energy Evolving?</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">12:00</div>
+            <div class="details">
+              <h3>Masashi Hazumi</h3>
+              <p class="talk-title">Title: Qubits for light dark matter searches</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: Axion-like particles (ALPs) are well-motivated candidates for dark matter.
+In this talk, I will describe our recent proposals for using qubits, in particular with diamond sensors, for ALP searches.
+At the end of my talk, I will discuss future possibilities of utilizing quantum entanglement to
+further enhance the sensitivity.
+</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">12:25</div>
+            <div class="details">
+              <h3>Lam Hui</h3>
+              <p class="talk-title">Title: Recent developments in wave dark matter</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: If dark matter is composed of particles lighter than about 10 eV, wave phenomena become important.
+We will discuss both the astrophysical implications in the ultra-light regime, and experimental implications for axion detection
+in a broad range of masses. </p>
+              </details>
+            </div>
+          </article>
+        </section>
+
+        <div class="event">
+          <div class="time">12:50</div>
+          <div class="details">
+            <h3>Lunch</h3>
+          </div>
+        </div>
+
+        <section class="session">
+          <h3 class="session-title">Cosmology 2</h3>
+          <p class="session-chair">Chair: Mariana Carillo Gonzalez</span></p>
+
+          <article class="talk" data-slides="">
+            <div class="time">14:10</div>
+            <div class="details">
+              <h3>Ofer Lahav</h3>
+              <p class="talk-title">Title: Will ΛCDM Survive? Perspectives from DES and DESI</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: After more than a quarter of a century as the standard model of cosmology, the Λ Cold Dark Matter (ΛCDM) paradigm is facing increasingly stringent tests from a combination of observational probes, including galaxy clustering, weak gravitational lensing, Type Ia supernovae, and the cosmic microwave background. In this talk, I will discuss what we have learned from the Dark Energy Survey (DES) and the Dark Energy Spectroscopic Instrument (DESI) regarding the relative merits of the ΛCDM model and dynamical dark energy alternatives. I will also describe methods for combining different cosmological probes using the Hyper-Parameter framework, which provides a robust approach for assessing the consistency of different data sets. Finally, I will present preliminary results from a novel test of gravity based on measurements of gravitational redshifts around galaxy clusters.
+
+</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">14:35</div>
+            <div class="details">
+              <h3>Dmitri Pogosyan</h3>
+              <p class="talk-title">Title: Properties of the Cosmic Web ab initio</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: The field of initial density inhomogeneities contains
+the information about many properties of the predominantly filamentary
+Large Scale Structure observed now in the Universe. Sometimes, average properties,
+such as connectivity of the filamentary Cosmic Web of galaxies
+or rate of mergers during assembly of halos, can be deduced from
+first principles by studying this random field of initial density.
+I will revisit key points of our earlier work in this direction and highlight a couple of new results recently developed with my junior colleagues.
+</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">15:00</div>
+            <div class="details">
+              <h3>Joe Zuntz</h3>
+              <p class="talk-title">Title: Multi-probe Higher-Order Statistics: Ridge lensing</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: years. In this approach we measure two-point correlation functions on and between two sets of fields: galaxy density fields, and the gravitational lensing fields. This method has proved more effective in constraining the late time matter power spectrum than either statistic alone.
+
+Separately, there has been a significant push towards studying higher order statistics of weak lensing fields. A very broad range of such statistics has been explored, from three-point functions to morphological statistics and machine learning-driven approaches.
+
+In this talk I will discuss work with Mehraveh Nikjoo, Ben Moews, and Ottavia Truttero that unifies these two approaches and explores higher-order statistics on combined lensing and clustering fields. As a first go we have been exploring weak lensing by extended ridge structures in galaxy density, which have been shown to trace underlying cosmic web filaments.
+
+I’ll also talk about life as one of Andrew’s early PhD students back in the mid 2000s!
+</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">15:25</div>
+            <div class="details">
+              <h3>Selim Hotinli</h3>
+              <p class="talk-title">Title: Peculiar Velocities with the Microwave Background Today</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: Using the cosmic microwave background as a backlight, we can now measure the three-dimensional velocity field of large-scale structure: kinematic Sunyaev–Zel'dovich tomography captures motion along the line of sight, and the moving-lens effect captures motion across it. I will review where peculiar velocities stand today, through the estimators and the measurements behind them: the first detection of the moving-lens effect; the first three-dimensional kSZ velocity reconstruction from a photometric survey; and the DESI DR2 × ACT DR6 kSZ measurements and the tightest velocity-field primordial-non-Gaussianity constraint to date. These reconstructions are most powerful on the largest scales, where they can carry lower noise per mode than the galaxy field and, combined with galaxy density, cancel cosmic variance.  </p>
+              </details>
+            </div>
+          </article>
+        </section>
+
+        <div class="event">
+          <div class="time">15:50</div>
+          <div class="details">
+            <h3>Coffee break</h3>
+          </div>
+        </div>
+
+        <div class="event" data-slides="">
+          <div class="time">16:15-17:00</div>
+          <div class="details">
+            <h3>Panel Discussion: The future of cosmology</h3>
+            <details class="abstract-toggle">
+              <summary>Show discussion summary</summary>
+              <p class="abstract">Discussion summary: Charles Lawrence (Chair), Jo Dunkley, George Efstathiou, Licia Verde</p>
+            </details>
+          </div>
+        </div>
+
+        <div class="event">
+          <div class="time">18:30</div>
+          <div class="details">
+            <h3>Conference Dinner</h3>
+            <p class="abstract">170 Queen's Gate.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="day" id="thursday">
+      <div class="day-header">
+        <h2>Thursday 2 July</h2>
+      </div>
+      <div class="day-body">
+
+        <section class="session">
+          <h3 class="session-title">Topology and CMB SBI</h3>
+          <p class="session-chair">Chair: Erminia Calabrese</span></p>
+          
+          <article class="talk" data-slides="">
+            <div class="time">09:25</div>
+            <div class="details">
+              <h3>Yashar Akrami</h3>
+              <p class="talk-title">Title: The Shape of Space: A New Era of Cosmic Topology</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: The global topology of the Universe remains one of the last unknown properties of spacetime. Over the past two decades, the field has evolved from searches for matched circles in the cosmic microwave background to Bayesian inference methods, an approach to which Andrew made pioneering contributions through his early likelihood analyses and leadership of the Planck topology searches. Building on this foundation, the COMPACT collaboration has been developing a unified Bayesian framework that substantially generalizes previous searches by exploring the vastly larger space of possible topologies, observer configurations, and cosmological models. I will review recent progress toward this goal, including extensions to a much broader range of topological models and observational probes, and discuss future developments beyond the cosmic microwave background toward three-dimensional observations of the large-scale structure of the Universe. Together, these developments are ushering in a new era of cosmic topology, transforming the search for the global shape of space into a comprehensive cosmological inference problem that exploits the full information content of cosmological observations.</p>
+              </details>
+            </div>
+          </article>
+
+
+          <article class="talk" data-slides="">
+            <div class="time">09:50</div>
+            <div class="details">
+              <h3>Linn Htat Lu</h3>
+              <p class="talk-title">Title: Searching for Topology in the CMB using Bayesian Methods</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: The universe has non-trivial spatial topology if there exist incontractable closed loops in space — if you travel far enough in one direction, you will come back to where you started. I will discuss the effects that non-trivial topology can have on the CMB and how we can search for these effects. Particularly, I will focus on the effect of topology on the statistics of the CMB anisotropies, and how we might detect topology via a Bayesian likelihoods search.  We will see how previous searches for topology have only ruled out a small part of the parameter space of detectable topologies, and that a new likelihoods search will allow us to probe deeper into this space using existing and upcoming CMB data. </p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">10:15</div>
+            <div class="details">
+              <h3>Xing Li</h3>
+              <p class="talk-title">Title: Simulation-Based Inference for CMB Cosmology</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: The cosmic microwave background has long been a central arena for precision cosmology and statistical inference. In this talk, I will discuss how simulation-based inference can be used as a likelihood-free approach to CMB parameter estimation, allowing inference to be built directly around forward simulations of the experiment and sky. I will present ongoing work towards a Planck-like SBI pipeline, including realistic simulations and data processing, and discuss how such methods can be tested and applied in the context of precision CMB cosmology.</p>
+              </details>
+            </div>
+          </article>
+        </section>
+
+    
+        
+        <div class="event">
+          <div class="time">10:40</div>
+          <div class="details">
+            <h3>Coffee break</h3>
+          </div>
+        </div>
+
+        <section class="session">
+          <h3 class="session-title">Random 3</h3>
+          <p class="session-chair">Chair: Peter Coles</span></p>
+
+          <article class="talk" data-slides="">
+            <div class="time">11:10</div>
+            <div class="details">
+              <h3>Florent Leclercq</h3>
+              <p class="talk-title">Title: Potentially brilliant: Andrew and sCOLA, a history of boundaries</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: The story of spatial COmoving Lagrangian Acceleration (sCOLA) is a story of boundaries, and of one well-timed suggestion that turned a stalled idea into a working method. sCOLA promised something remarkable: split a cosmological volume into independent tiles, evolve each one with no communication whatsoever, and recover a full simulation with perfect parallelism. The catch was the boundaries. Each tile is a small, non-periodic window onto a larger Universe, and getting the gravitational potential right at its edges proved decisive. Early attempts were simply not accurate enough, and the approach risked remaining a curiosity. The breakthrough came when Andrew suggested approximating the boundary potential with the Linearly Evolving Potential, which finally unlocked the accuracy the method needed, as published in 2020. From there, the idea has travelled: COCA (2024) generalises the comoving frame from perturbation theory to a machine-learnt one, while sCOLA lightcones (2026) evolve each tile only until it exits the observer's past lightcone. Sixty years in, Andrew is still keeping us all within bounds.
+</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">11:35</div>
+            <div class="details">
+              <h3>Raul Jimenez</h3>
+              <p class="talk-title">Title: The Age of the Universe and Cosmology: from Andrew’s early insights to today’s accuracy</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: I will review the current status of using cosmic clocks and chronometers to pin down the cosmological model reflecting on Andrew’s early insights on how and why we should use timing besides yard stick to unveil the nature of the cosmos.</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">12:00</div>
+            <div class="details">
+              <h3>Ben Wandelt</h3>
+              <p class="talk-title">Title: Trust, but Validate: Cosmology After the Likelihood</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract: Not least thanks to Andrew's pioneering efforts, Bayesian statistics has been the leading conceptual framework for confronting cosmological theory with data for decades. When Andrew first taught me about CMB map-making and power spectrum inference the frontier problems were those admitting closed-form likelihoods. The advent of deep learning for computational inference, together with accessible software, is radically transforming the practice of statistical cosmology: problems considered intractable only a few years ago are now solved routinely. These newfound capabilities have led to substantially raised expectations for what statistical analysis ought to be able to accomplish. I will discuss the resulting technical and conceptual questions around trust, validation, and model misspecification that are changing the nature of frontier research in the field.
+</p>
+              </details>
+            </div>
+          </article>
+
+          <article class="talk" data-slides="">
+            <div class="time">12:25</div>
+            <div class="details">
+              <h3>Licia Verde</h3>
+              <p class="talk-title">Title: An Excursion into Non-Gaussianity</p>
+              <details class="abstract-toggle">
+                <summary>Show abstract</summary>
+                <p class="abstract">Abstract:Non-Gaussianity is a powerful clue to the physics of the early Universe, but its traces must be searched for in the complex late-time Universe. I will take an excursion through recent and ongoing work by my research group using large-scale structure to look for these traces:  from the bispectrum to the mass function, from assembly bias to simulations, and finally to rare objects such as galaxy clusters. By the end  I hope I will convince you that Andrew had the right idea in looking at the CMB: the late-time Universe does not give up its secrets quite so gracefully.</p>
+              </details>
+            </div>
+          </article>
+        </section>
+
+        <div class="event">
+          <div class="time">12:50</div>
+          <div class="details">
+            <h3>Finish and thanks</h3>
+            <p class="abstract">Closing remarks.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="footer">
+      Programme page for <strong>Andrew Jaffe @ 60</strong> · Venue: <strong>Blackett Lecture Theatre 2</strong>
+    </footer>
+
+  </div>
+
+  <script>
+    // Add a "[slides]" link next to any speaker's name if a filename
+    // has been given in the data-slides attribute of their <article class="talk">.
+    // PDFs are expected in a "talks/" folder alongside this file.
+    document.querySelectorAll('.talk[data-slides], .event[data-slides]').forEach(function (talk) {
+      const raw = talk.getAttribute('data-slides').trim();
+      if (!raw) return; // nothing supplied yet - show nothing
+
+      // Supports multiple files, comma-separated, e.g.:
+      //   data-slides="smith.pdf"
+      //   data-slides="smith.pdf, smith_appendix.pdf"
+      // Optionally give each a custom label with "Label:filename.pdf":
+      //   data-slides="Slides:talk.pdf, Code:demo.pdf"
+      const files = raw.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+      if (files.length === 0) return;
+
+      const heading = talk.querySelector('.details h3');
+      if (!heading) return;
+
+      files.forEach(function (entry, i) {
+        let label, filename;
+        if (entry.includes(':')) {
+          const parts = entry.split(':');
+          label = parts[0].trim();
+          filename = parts.slice(1).join(':').trim();
+        } else {
+          filename = entry;
+          label = files.length > 1 ? 'slides ' + (i + 1) : 'slides';
+        }
+
+        const link = document.createElement('a');
+        link.href = 'talks/' + filename;
+        link.className = 'slides-link';
+        link.textContent = '[' + label + ']';
+        link.target = '_blank';
+        link.rel = 'noopener';
+
+        heading.appendChild(document.createTextNode(' '));
+        heading.appendChild(link);
+      });
+    });
+  </script>
+</body>
+</html>
