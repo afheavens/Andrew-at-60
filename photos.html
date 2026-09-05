@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Photos — The Random Universe</title>
+  <style>
+    :root {
+      --bg: #f8f7f4;
+      --paper: #ffffff;
+      --ink: #1f2933;
+      --muted: #5b6770;
+      --rule: #d9dde3;
+      --accent: #1f4b6e;
+      --accent-soft: #edf3f8;
+      --event: #f5f1e8;
+      --shadow: rgba(31, 41, 51, 0.08);
+      --maxw: 980px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+
+    .page {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--paper), #f3f6fa);
+      border: 1px solid var(--rule);
+      border-radius: 18px;
+      padding: 32px 28px;
+      box-shadow: 0 1px 2px var(--shadow);
+    }
+
+    .eyebrow {
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      max-width: 640px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 16px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .back-link:hover { text-decoration: underline; }
+
+    .note {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: 20px 0 28px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 14px;
+    }
+
+    .photo-card {
+      display: block;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--rule);
+      background: var(--paper);
+      box-shadow: 0 1px 2px var(--shadow);
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px var(--shadow);
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .footer {
+      margin-top: 48px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <header class="hero">
+      <div class="eyebrow">Conference Photos</div>
+      <h1>The Random Universe</h1>
+      <div class="subtitle">
+        Photos from the conference. Click any photo to open/download the full-resolution original.
+      </div>
+      <a class="back-link" href="index.html">&larr; Back to programme</a>
+    </header>
+
+    <p class="note">
+      Click a photo to open the full-resolution version in a new tab (right-click / long-press to save).
+    </p>
+
+    <div class="gallery" id="gallery">
+      <!-- Photo cards are generated below from the PHOTOS list -->
+    </div>
+
+    <footer class="footer">
+      Photos for <strong>Andrew Jaffe @ 60</strong> &middot; The Random Universe
+    </footer>
+
+  </div>
+
+  <script>
+    // ---- CONFIGURE THIS ----
+    // Base URL where full-resolution originals are hosted (a GitHub Release).
+    // Replace <user> and <repo> with your GitHub username and repository name,
+    // and <tag> with the tag you gave the release (e.g. "photos-2026").
+    const FULL_RES_BASE = 'https://github.com/<user>/<repo>/releases/download/<tag>/';
+
+    // List of photo filenames. Thumbnails must exist at photos/thumbs/<filename>,
+    // and the same filename must be attached as an asset on the release above.
+    const PHOTOS = [
+      'IMG_3896.jpg',
+      'IMG_3898.jpg',
+      'IMG_3900.jpg',
+      'IMG_3910.jpg',
+      'IMG_3912.jpg',
+      'IMG_3919.jpg',
+      'IMG_3923.jpg',
+      'IMG_3931.jpg',
+      'IMG_3932.jpg',
+      'IMG_3941.jpg',
+      'IMG_3947.jpg'
+    ];
+
+    const gallery = document.getElementById('gallery');
+    PHOTOS.forEach(function (filename) {
+      const a = document.createElement('a');
+      a.className = 'photo-card';
+      a.href = FULL_RES_BASE + filename;
+      a.target = '_blank';
+      a.rel = 'noopener';
+
+      const img = document.createElement('img');
+      img.src = 'photos/thumbs/' + filename;
+      img.alt = 'Conference photo';
+      img.loading = 'lazy';
+
+      a.appendChild(img);
+      gallery.appendChild(a);
+    });
+  </script>
+</body>
+</html>
